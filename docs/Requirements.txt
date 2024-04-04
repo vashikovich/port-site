@@ -1,0 +1,48 @@
+# Overall
+	- Portfolio Website
+	- Must include:
+		- About me + professional photo
+		- List of skills
+			- Tech stack
+		- List of projects
+			- Details
+			- Visual (e.g., screenshots)
+			- Tech stack
+		- List of services
+			- website, mobile, web scraping
+		- Contact form
+
+# Sitemap
+	- Homepage
+	- Project List
+	- Project Details
+	- Contact/Hire
+
+# Pages
+	- Layout
+		- Navbar
+		- Footer
+	- Homepage
+		- Bio cover (intro + photo)
+		- Services
+		- Skills
+		- Projects (recents only, in cards)
+		- Contact form (w/ email + photo)
+	- Project List
+		- Projects (all, in cards)
+	- Project Details
+		- Cover
+		- Details
+		- Tech stack
+		- Roles
+		- Other projects
+		- Contact form (w/ email + photo)
+	- Contact/Hire
+		- Contact form (w/ email + photo)
+		
+# Behavior
+	- Navbar scrolls the page
+	- If origin is from Toptal
+		- all contact form must refer to Toptal
+		- All "contact me" must become "hire me"
+	- Light + dark mode
