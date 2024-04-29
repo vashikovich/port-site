@@ -4,8 +4,8 @@ import Button from "./button";
 
 export default function Cover() {
     return (
-        <div className="flex flex-col md:flex-row-reverse md:justify-between md:items-center w-full px-12 md:px-0 mt-10 md:mt-20">
-            <div className="mx-auto md:mx-0">
+        <div className="flex flex-col md:flex-row-reverse md:justify-between md:items-center w-full px-12 md:px-10 mt-10 md:mt-20">
+            <div className="mx-auto md:mx-0 md:ml-16">
                 <Image
                     src="/images/cover.jpg"
                     width={200}
