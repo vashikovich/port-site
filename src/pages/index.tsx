@@ -5,19 +5,18 @@ import Services from "@/components/services";
 import Expertise from "@/components/expertise";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
+import Layout from "@/components/layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main
-      className={`max-w-screen-lg mx-auto ${inter.className}`}
-    >
+    <Layout>
       <Cover />
       <Services />
       <Expertise />
       <Projects />
       <Contact />
-    </main>
+    </Layout>
   );
 }
