@@ -1,6 +1,6 @@
 import SkillTag from "./skill-tag";
 
-export default function Expertise() {
+export default function Expertise({ tier1, tier2, tier3 }) {
     return (
         <div className="p-10">
             <div className="relative w-fit">
@@ -13,132 +13,36 @@ export default function Expertise() {
             </div>
             <div className="flex flex-col md:flex-row gap-5">
                 <div className="grid grid-cols-2 md:grid-cols-1 md:grid-rows-6 gap-5 mt-5">
-                    <SkillTag
-                        variant="primary"
-                        text="JavaScript"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="primary"
-                        text="Node.js"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="primary"
-                        text="TypeScript"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="primary"
-                        text="React"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="primary"
-                        text="C#"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="primary"
-                        text="React Native"
-                        icon="/logo/javascript.svg"
-                    />
+                    {tier1.map(t1 => (
+                        <SkillTag
+                            variant="primary"
+                            text={t1["Name"]}
+                            icon={`/logo/${t1["Logo"]}`}
+                            key={t1["Name"]}
+                        />
+                    ))}
                 </div>
 
                 <div className="grid grid-cols-3 md:grid-cols-1 md:grid-rows-9 gap-3 mt-5">
-                    <SkillTag
-                        variant="secondary"
-                        text="JavaScript"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="secondary"
-                        text="Node.js"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="secondary"
-                        text="TypeScript"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="secondary"
-                        text="React"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="secondary"
-                        text="C#"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="secondary"
-                        text="React Native"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="secondary"
-                        text="React Native"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="secondary"
-                        text="React Native"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="secondary"
-                        text="React Native"
-                        icon="/logo/javascript.svg"
-                    />
+                {tier2.map(t2 => (
+                        <SkillTag
+                            variant="secondary"
+                            text={t2["Name"]}
+                            icon={`/logo/${t2["Logo"]}`}
+                            key={t2["Name"]}
+                        />
+                    ))}
                 </div>
 
                 <div className="grid grid-cols-3 md:grid-cols-1 md:grid-rows-9 gap-5 mt-5">
-                    <SkillTag
-                        variant="tertiary"
-                        text="JavaScript"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="tertiary"
-                        text="Node.js"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="tertiary"
-                        text="TypeScript"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="tertiary"
-                        text="React"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="tertiary"
-                        text="C#"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="tertiary"
-                        text="React Native"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="tertiary"
-                        text="React Native"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="tertiary"
-                        text="React Native"
-                        icon="/logo/javascript.svg"
-                    />
-                    <SkillTag
-                        variant="tertiary"
-                        text="React Native"
-                        icon="/logo/javascript.svg"
-                    />
+                {tier3.map(t3 => (
+                        <SkillTag
+                            variant="tertiary"
+                            text={t3["Name"]}
+                            icon={`/logo/${t3["Logo"]}`}
+                            key={t3["Name"]}
+                        />
+                    ))}
                 </div>
 
                 <p>

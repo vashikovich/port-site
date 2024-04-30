@@ -2,8 +2,10 @@ import Image from "next/image.js";
 import Tag from "./tag";
 import Button from "./button";
 import clsx from "clsx";
+import { useRouter } from "next/router.js";
 
-export default function ProjectCard({ title, content, tags, stacks, image, even }) {
+export default function ProjectCard({ id, title, content, tags, techs, image, even }) {
+    const router = useRouter()
     return (
         <div className={clsx(
             "border flex flex-col  p-6 gap-5",
@@ -29,15 +31,15 @@ export default function ProjectCard({ title, content, tags, stacks, image, even 
                 </div>
                 <p>{content}</p>
                 <div className="flex flex-row">
-                    {stacks.map(stack => (
+                    {techs.map(tech => (
                         <Tag
-                            text={stack}
-                            key={stack}
+                            text={tech["Name"]}
+                            key={tech["Name"]}
                         />
                     ))}
                 </div>
                 <div className="flex flex-row justify-between">
-                    <Button>
+                    <Button onClick={() => router.push(`/projects/${id}`)}>
                         Visit Site
                     </Button>
                     <Button>

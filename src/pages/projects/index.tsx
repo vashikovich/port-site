@@ -1,38 +1,41 @@
 import Layout from "@/components/layout";
 import ProjectCard from "@/components/project-card";
+import { getProjects, getTechDescriptions } from "@/lib/content";
+import { parseTechs } from "@/lib/utils";
 
-export default function ProjectList() {
+export async function getStaticProps() {
+    const techs = await getTechDescriptions()
+    const projects = await getProjects()
+    return {
+        props: {
+            techs,
+            projects
+        }
+    }
+}
+
+export default function ProjectList({ techs, projects }) {
+    const content = projects.map(p => ({
+        ...p,
+        "Techs": parseTechs(techs, p["Techs"].split("|")[0].trim()),
+        "Tags": p["Tags"].split("|")[0].split(/,\s+/)
+    }))
+
     return (
         <Layout>
             <div className="flex flex-col gap-5 p-10">
-                <ProjectCard
-                    title="Forex Trading Dashboard"
-                    content="Personalized forex trading dashboard, with charts, price action and fundamental analysis, and direct connection to brokerage."
-                    tags={["Website", "Full-stack", "Dashboard"]}
-                    stacks={["JavaScript", "React", "Node.js", "MongoDB"]}
-                    image="/images/cover.jpg"
-                />
-                <ProjectCard
-                    title="Forex Trading Dashboard"
-                    content="Personalized forex trading dashboard, with charts, price action and fundamental analysis, and direct connection to brokerage."
-                    tags={["Website", "Full-stack", "Dashboard"]}
-                    stacks={["JavaScript", "React", "Node.js", "MongoDB"]}
-                    image="/images/cover.jpg"
-                />
-                <ProjectCard
-                    title="Forex Trading Dashboard"
-                    content="Personalized forex trading dashboard, with charts, price action and fundamental analysis, and direct connection to brokerage."
-                    tags={["Website", "Full-stack", "Dashboard"]}
-                    stacks={["JavaScript", "React", "Node.js", "MongoDB"]}
-                    image="/images/cover.jpg"
-                />
-                <ProjectCard
-                    title="Forex Trading Dashboard"
-                    content="Personalized forex trading dashboard, with charts, price action and fundamental analysis, and direct connection to brokerage."
-                    tags={["Website", "Full-stack", "Dashboard"]}
-                    stacks={["JavaScript", "React", "Node.js", "MongoDB"]}
-                    image="/images/cover.jpg"
-                />
+                {content.map((p, i) => (
+                    <ProjectCard
+                        id={p["ID"]}
+                        title={p["Title"]}
+                        content={p["Short Desc"]}
+                        tags={p["Tags"]}
+                        techs={p["Techs"]}
+                        image={p["Image"]}
+                        even={i % 2 == 0}
+                        key={p["Title"]}
+                    />
+                ))}
             </div>
         </Layout>
     )
