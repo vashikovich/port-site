@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import Cover from "@/components/cover";
 import Services from "@/components/services";
+import Expertise from "@/components/expertise";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +13,7 @@ export default function Home() {
     >
       <Cover />
       <Services />
+      <Expertise />
     </main>
   );
 }
