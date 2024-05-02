@@ -1,6 +1,6 @@
 import Image from "next/image.js";
 
-export default function SkillTag({ variant, icon, text }) {
+export default function SkillTag({ variant, icon, text }: SkillTagProps) {
   if (variant == "primary")
     return (
       <div className="p-4 flex flex-1 flex-col md:flex-row items-center gap-5 border-2">
@@ -24,3 +24,9 @@ export default function SkillTag({ variant, icon, text }) {
       </div>
     );
 }
+
+type SkillTagProps = {
+  variant: string;
+  icon: string;
+  text: string;
+};

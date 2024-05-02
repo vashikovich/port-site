@@ -7,17 +7,19 @@ import Projects from "@/components/projects";
 import Contact from "@/components/contact";
 import Layout from "@/components/layout";
 import {
+  HomeSchema,
+  ProjectSchema,
+  TechSchema,
   getHomeContent,
   getProjects,
-  getTechDescriptions,
+  getTechs,
 } from "@/lib/content";
-import { parseHomeTechs, parseTechs } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export async function getStaticProps() {
   const content = await getHomeContent();
-  const techs = await getTechDescriptions();
+  const techs = await getTechs();
   const projects = (await getProjects()).slice(0, 3);
   return {
     props: {
@@ -28,26 +30,35 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ content, techs, projects }) {
-  const coverContent = content.find((c) => c["Type"] == "Bio");
-  const servicesContent = content.filter((c) => c["Type"] == "Service");
-  const projectsContent = projects.map((p) => ({
-    ...p,
-    Techs: parseTechs(techs, p["Techs"].split("|")[0].trim()),
-    Tags: p["Tags"].split("|")[0].split(/,\s+/),
-  }));
+export default function Home({ content, techs, projects }: HomeProps) {
+  const coverContent = content.find((c) => c.type == "Bio");
+  const servicesContent = content.filter((c) => c.type == "Service");
 
-  const exp1Techs = parseHomeTechs(content, techs, "Expertise 1");
-  const exp2Techs = parseHomeTechs(content, techs, "Expertise 2");
-  const exp3Techs = parseHomeTechs(content, techs, "Expertise 3");
+  const parseExpertise = (type: string) =>
+    content.find((c) => c.type == type)?.title.split(/,\s+/) ?? [];
+
+  const expertises = [
+    parseExpertise("Expertise 1"),
+    parseExpertise("Expertise 2"),
+    parseExpertise("Expertise 3"),
+  ];
 
   return (
     <Layout>
-      <Cover greeting={coverContent["Title"]} bio={coverContent["Content"]} />
+      <Cover
+        greeting={coverContent?.title ?? ""}
+        bio={coverContent?.content ?? ""}
+      />
       <Services content={servicesContent} />
-      <Expertise tier1={exp1Techs} tier2={exp2Techs} tier3={exp3Techs} />
-      <Projects projects={projectsContent} />
+      <Expertise expertises={expertises} techs={techs} />
+      <Projects projects={projects} techs={techs} />
       <Contact />
     </Layout>
   );
 }
+
+type HomeProps = {
+  content: HomeSchema[];
+  techs: TechSchema[];
+  projects: ProjectSchema[];
+};

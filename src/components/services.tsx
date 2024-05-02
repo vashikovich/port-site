@@ -1,6 +1,7 @@
+import { HomeSchema } from "@/lib/content.js";
 import ServiceCard from "./service-card";
 
-export default function Services({ content }) {
+export default function Services({ content }: { content: HomeSchema[] }) {
   return (
     <div className="p-10">
       <div className="relative w-fit">
@@ -9,11 +10,7 @@ export default function Services({ content }) {
       </div>
       <div className="flex flex-col md:flex-row gap-5 mt-5">
         {content.map((c) => (
-          <ServiceCard
-            title={c["Title"]}
-            content={c["Content"]}
-            key={c["Title"]}
-          />
+          <ServiceCard title={c.title} content={c.content} key={c.title} />
         ))}
       </div>
     </div>

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-function Button({ children, variant, color, size, ...rest }) {
+function Button({ children, variant, color, size, ...rest }: any) {
   return (
     <button
       className={clsx(`flex w-fit justify-center bg-${color} p-3`)}

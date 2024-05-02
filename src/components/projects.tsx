@@ -1,9 +1,11 @@
 import { useRouter } from "next/router.js";
 import Button from "./button";
 import ProjectCard from "./project-card";
+import { ProjectSchema, TechSchema } from "@/lib/content.js";
 
-export default function Projects({ projects }) {
+export default function Projects({ projects, techs }: ProjectsProps) {
   const router = useRouter();
+
   return (
     <div className="p-10 space-y-5">
       <div className="relative w-fit">
@@ -14,16 +16,7 @@ export default function Projects({ projects }) {
       </div>
       <div className="flex flex-col gap-5">
         {projects.map((p, i) => (
-          <ProjectCard
-            id={p["ID"]}
-            title={p["Title"]}
-            content={p["Short Desc"]}
-            tags={p["Tags"]}
-            techs={p["Techs"]}
-            image={p["Image"]}
-            even={i % 2 == 0}
-            key={p["Title"]}
-          />
+          <ProjectCard project={p} techs={techs} even={i % 2 == 0} key={p.id} />
         ))}
       </div>
       <div className="flex justify-center">
@@ -34,3 +27,8 @@ export default function Projects({ projects }) {
     </div>
   );
 }
+
+type ProjectsProps = {
+  projects: ProjectSchema[];
+  techs: TechSchema[];
+};

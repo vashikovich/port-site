@@ -2,7 +2,7 @@ import Image from "next/image.js";
 import Tag from "./tag";
 import Button from "./button";
 
-export default function Cover({ greeting, bio }) {
+export default function Cover({ greeting, bio }: CoverProps) {
   return (
     <div className="flex flex-col md:flex-row-reverse md:justify-between md:items-center w-full px-12 md:px-10 mt-10 md:mt-20">
       <div className="mx-auto md:mx-0 md:ml-16">
@@ -31,7 +31,7 @@ export default function Cover({ greeting, bio }) {
           <Tag text="Indonesia" />
         </div>
         <div className="space-y-5">
-          {bio.split(/[\r\n]+/).map((b) => (
+          {bio.split(/[\r\n]+/).map((b: string) => (
             <p className="text-md" key={b}>
               {b}
             </p>
@@ -44,3 +44,8 @@ export default function Cover({ greeting, bio }) {
     </div>
   );
 }
+
+type CoverProps = {
+  greeting: string;
+  bio: string;
+};
