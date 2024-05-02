@@ -30,8 +30,7 @@ export default function ProjectPage({ project }) {
     return (
         <Layout>
             <div>
-                <Image
-                />
+                {/* <Image /> */}
                 <div>tags</div>
                 <h3>{project["Title"]}</h3>
                 <p>{project["Short Desc"]}</p>

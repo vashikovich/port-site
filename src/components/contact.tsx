@@ -6,7 +6,7 @@ export default function Contact() {
         <div className="p-10">
             <div className="relative w-fit">
                 <h1 className="text-5xl font-bold text-primary-main/50">
-                    LET'S WORK TOGETHER
+                    LET$apos;S WORK TOGETHER
                 </h1>
             </div>
             <div className="flex flex-col md:flex-row-reverse md:justify-between mt-6 gap-6">
