@@ -10,7 +10,7 @@ interface IParams extends ParsedUrlQuery {
   id: string;
 }
 
-export const getStaticProps: GetStaticProps = async (params) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const projects = await getProjects();
   const id = (params as IParams).id;
   const project = projects.find((p) => p.id == id);

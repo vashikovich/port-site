@@ -32,7 +32,7 @@ export async function getHomeContent(): Promise<HomeSchema[]> {
   return records.map(
     (r): HomeSchema => ({
       title: r.fields["Title"] as string,
-      content: r.fields["Content"] as string,
+      content: (r.fields["Content"] as string) ?? null,
       type: r.fields["Type"] as string,
     })
   );
@@ -80,6 +80,6 @@ export async function getTechs(): Promise<TechSchema[]> {
   const records = await airtableBase.table("Tech").select().all();
   return records.map((r) => ({
     name: r.fields["Name"] as string,
-    logoFileName: r.fields["Logo"] as string,
+    logoFileName: (r.fields["Logo"] as string) ?? null,
   }));
 }
