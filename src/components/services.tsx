@@ -3,16 +3,16 @@ import ServiceCard from "./service-card";
 
 export default function Services({ content }: { content: HomeSchema[] }) {
   return (
-    <div className="p-10">
-      <div className="relative w-fit">
-        <h1 className="text-5xl font-bold text-primary-main/50">SERVICES</h1>
-        <h5 className="absolute right-0 bottom-0">What I can provide</h5>
+    <section className="max-w-screen-lg mx-auto p-12">
+      <div className="relative md:w-fit">
+        <h1 className="text-secondary/40 md:text-secondary/30">SERVICES</h1>
+        <p className="text-sm md:text-lg text-right md:absolute md:right-3 md:bottom-3 text-slate-200/90">What I can provide</p>
       </div>
-      <div className="flex flex-col md:flex-row gap-5 mt-5">
+      <div className="flex flex-col md:flex-row gap-5 mt-6 md:mt-8">
         {content.map((c) => (
           <ServiceCard title={c.title} content={c.content} key={c.title} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }

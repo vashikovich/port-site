@@ -14,23 +14,23 @@ export default function ProjectCard({
   return (
     <div
       className={clsx(
-        "border flex flex-col  p-6 gap-5",
+        "rounded bg-slate-800 flex flex-col",
         even ? "md:flex-row" : "md:flex-row-reverse"
       )}
     >
-      <div>
-        {/* <Image src={image} width={100} height={100} alt={title} /> */}
+      <div className="relative w-full h-36">
+        <Image src={"/images/cover-bg.jpg"} fill alt={"cover"} />
       </div>
-      <div>
-        <h4 className="text-lg font-bold">{project.title}</h4>
-        <div className="flex flex-row">
-          {project.allTags.map((tag) => (
+      <div className="flex flex-col p-6 gap-2">
+        <h4 className="text-xl md:text-2xl font-bold">{project.title}</h4>
+        <div className="flex flex-row flex-wrap">
+          {project.tags.map((tag) => (
             <Tag text={tag} key={tag} />
           ))}
         </div>
         <p>{project.shortDesc}</p>
-        <div className="flex flex-row">
-          {project.allTechs.map((projectTech) => {
+        <div className="flex flex-row flex-wrap">
+          {project.techs.map((projectTech) => {
             let tech = techs.find((t) => t.name == projectTech);
             return (
               <Tag

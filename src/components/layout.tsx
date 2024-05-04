@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <main className={`max-w-screen-lg mx-auto ${inter.className}`}>
+    <main className={`bg-slate-950 text-slate-100 ${inter.className}`}>
       {children}
     </main>
   );
