@@ -3,7 +3,7 @@ import Button from "../components/button";
 
 export default function Contact() {
   return (
-    <section className="bg-slate-900">
+    <section id="contact-section" className="bg-slate-900">
       <div className="max-w-screen-lg mx-auto px-12 py-20 bg-slate-900">
         <div className="flex justify-center md:justify-start mb-12 md:mb-20">
           <h1 className="text-secondary text-center md:text-left md:text-6xl">

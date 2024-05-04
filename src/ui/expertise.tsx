@@ -16,7 +16,7 @@ export default function Expertise({ expertises, techs }: ExpertiseProps) {
     });
 
   return (
-    <section className="bg-slate-900">
+    <section id="expertise-section" className="bg-slate-900">
       <div className="max-w-screen-lg mx-auto px-12 py-20 bg-slate-900">
         <div className="relative md:w-fit mb-12 md:mb-20">
           <h1 className="text-secondary/40 md:text-secondary/30">EXPERTISE</h1>

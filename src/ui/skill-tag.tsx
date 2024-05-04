@@ -9,7 +9,7 @@ export default function SkillTag({ variant, icon, text }: SkillTagProps) {
     return (
       <div className={clsx(defaultClass, "flex-col md:flex-row justify-center md:justify-start items-center p-6")}>
         <Image src={icon} width={40} height={40} alt={text} />
-        <p className="text-xl font-bold text-center md:text-left">{text}</p>
+        <p className="md:text-xl font-bold text-center md:text-left">{text}</p>
       </div>
     );
 

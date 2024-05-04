@@ -7,7 +7,7 @@ export default function Projects({ projects, techs }: ProjectsProps) {
   const router = useRouter();
 
   return (
-    <section className="max-w-screen-lg mx-auto px-12 py-20">
+    <section id="projects-section" className="max-w-screen-lg mx-auto px-12 py-20">
       <div className="relative md:w-fit mb-12 md:mb-20">
         <h1 className="text-4xl md:text-8xl text-secondary/40 md:text-secondary/30">
           EXPERIENCES
@@ -21,7 +21,7 @@ export default function Projects({ projects, techs }: ProjectsProps) {
           <ProjectCard project={p} techs={techs} even={i % 2 == 0} key={p.id} />
         ))}
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-6 md:mt-8">
         <Button onClick={() => router.push("/projects")}>
           View All Projects
         </Button>
