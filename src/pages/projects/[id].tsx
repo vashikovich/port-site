@@ -1,6 +1,6 @@
-import Contact from "@/components/contact";
+import Contact from "@/ui/contact";
 import Layout from "@/components/layout";
-import ProjectCard from "@/components/project-card";
+import ProjectCard from "@/ui/project-card";
 import { ProjectSchema, getProjects } from "@/lib/content";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";

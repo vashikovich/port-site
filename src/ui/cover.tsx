@@ -1,11 +1,11 @@
 import Image from "next/image.js";
-import Tag from "./tag";
-import Button from "./button";
+import Tag from "../components/tag";
+import Button from "../components/button";
 
 export default function Cover({ greeting, bio }: CoverProps) {
   return (
     <section style={{ backgroundImage: "url('/images/cover-bg.jpg')" }}>
-      <div className="flex flex-col md:flex-row-reverse md:justify-between md:items-center w-full p-12 md:p-10 max-w-screen-lg mx-auto">
+      <div className="flex flex-col md:flex-row-reverse md:justify-between md:items-center w-full px-12 py-20 max-w-screen-lg mx-auto">
         <div className="mx-auto md:mx-0 md:ml-16">
           <Image
             src="/images/cover.jpg"

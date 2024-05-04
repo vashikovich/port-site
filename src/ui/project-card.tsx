@@ -1,6 +1,6 @@
 import Image from "next/image.js";
-import Tag from "./tag";
-import Button from "./button";
+import Tag from "../components/tag";
+import Button from "../components/button";
 import clsx from "clsx";
 import { useRouter } from "next/router.js";
 import { ProjectSchema, TechSchema } from "@/lib/content.js";

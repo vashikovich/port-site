@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import Cover from "@/components/cover";
-import Services from "@/components/services";
-import Expertise from "@/components/expertise";
-import Projects from "@/components/projects";
-import Contact from "@/components/contact";
+import Cover from "@/ui/cover";
+import Services from "@/ui/services";
+import Expertise from "@/ui/expertise";
+import Projects from "@/ui/projects";
+import Contact from "@/ui/contact";
 import Layout from "@/components/layout";
 import {
   HomeSchema,

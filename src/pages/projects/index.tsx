@@ -1,5 +1,5 @@
 import Layout from "@/components/layout";
-import ProjectCard from "@/components/project-card";
+import ProjectCard from "@/ui/project-card";
 import {
   ProjectSchema,
   TechSchema,

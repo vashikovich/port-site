@@ -1,5 +1,5 @@
 import { TechSchema } from "@/lib/content.js";
-import SkillTag from "./skill-tag";
+import SkillTag from "@/ui/skill-tag";
 
 export default function Expertise({ expertises, techs }: ExpertiseProps) {
   const renderTags = (exps: string[], techs: TechSchema[], variant: string) =>
@@ -17,14 +17,14 @@ export default function Expertise({ expertises, techs }: ExpertiseProps) {
 
   return (
     <section className="bg-slate-900">
-      <div className="max-w-screen-lg mx-auto p-12 bg-slate-900">
-        <div className="relative md:w-fit">
+      <div className="max-w-screen-lg mx-auto px-12 py-20 bg-slate-900">
+        <div className="relative md:w-fit mb-12 md:mb-20">
           <h1 className="text-secondary/40 md:text-secondary/30">EXPERTISE</h1>
           <p className="text-sm md:text-lg text-right md:absolute md:right-3 md:bottom-3 text-slate-200/90">
             My area of proficiency
           </p>
         </div>
-        <div className="flex flex-col mt-6 md:mt-8">
+        <div className="flex flex-col">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-5">
             {renderTags(expertises[0], techs, "primary")}
           </div>

@@ -1,16 +1,16 @@
 import Image from "next/image.js";
-import Button from "./button";
+import Button from "../components/button";
 
 export default function Contact() {
   return (
     <section className="bg-slate-900">
-      <div className="max-w-screen-lg mx-auto p-12 bg-slate-900">
-        <div className="flex justify-center md:justify-start">
+      <div className="max-w-screen-lg mx-auto px-12 py-20 bg-slate-900">
+        <div className="flex justify-center md:justify-start mb-12 md:mb-20">
           <h1 className="text-secondary text-center md:text-left md:text-6xl">
             LET&apos;S WORK TOGETHER
           </h1>
         </div>
-        <div className="flex flex-col md:flex-row-reverse md:justify-between mt-8 md:mt-12 gap-6">
+        <div className="flex flex-col md:flex-row-reverse md:justify-between gap-6">
           <div className="flex flex-col items-center gap-3">
             <Image
               src="/images/cover.jpg"
