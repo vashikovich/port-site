@@ -1,6 +1,6 @@
 import Image from "next/image.js";
 import Button from "../components/button";
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import Input from "@/components/input";
 
 export default function Contact() {
@@ -9,7 +9,7 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("initial");
 
-  const send = async (e: Event) => {
+  const send: MouseEventHandler<HTMLButtonElement> = async (e) => {
     if (!name || !email || !message) return;
 
     e.preventDefault();
@@ -29,8 +29,20 @@ export default function Contact() {
       setStatus("sent");
     } catch (e) {
       setStatus("initial");
+      alert(
+        "There is a problem submitting your message. Please email manually to indera.waskitho@gmail.com"
+      );
     }
   };
+
+  const loadingEl = (
+    <div className="relative inline-flex flex-col gap-2 items-center justify-center">
+      <div className="relative flex w-6 h-6">
+        <i className="absolute w-full h-full rounded-full animate-spin border-solid border-b-transparent border-l-transparent border-r-transparent border-2 border-t-current" />
+        <i className="absolute w-full h-full rounded-full opacity-75 animate-spin border-dotted border-l-transparent border-t-transparent border-r-transparent border-2 border-b-current" />
+      </div>
+    </div>
+  );
 
   return (
     <section id="contact-section" className="bg-slate-900">
@@ -98,8 +110,17 @@ export default function Contact() {
                   />
                 </div>
               </div>
-              <Button type="submit" fullWidth onClick={send}>
-                Send
+              <Button
+                type="submit"
+                fullWidth
+                onClick={send}
+                icon={status == "sending" && loadingEl}
+                disabled={status != "initial"}
+              >
+                <>
+                  {status == "initial" && "Send"}
+                  {status == "sent" && "Sent!"}
+                </>
               </Button>
             </form>
           </div>
