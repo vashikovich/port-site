@@ -1,30 +1,35 @@
 import Image from "next/image.js";
 import Button from "../components/button";
 import { useState } from "react";
+import Input from "@/components/input";
 
 export default function Contact() {
   const [name, setName] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState("initial");
 
   const send = async (e: Event) => {
     if (!name || !email || !message) return;
 
     e.preventDefault();
-    setSending(true);
-    await fetch("/api/message", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-      }),
-    });
-    setSending(false);
+    setStatus("sending");
+    try {
+      await fetch("/api/message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+        }),
+      });
+      setStatus("sent");
+    } catch (e) {
+      setStatus("initial");
+    }
   };
 
   return (
@@ -36,7 +41,7 @@ export default function Contact() {
           </h1>
         </div>
         <div className="flex flex-col md:flex-row-reverse md:justify-between gap-6">
-          <div className="flex flex-col items-center gap-3">
+          <div className="flex flex-col items-center gap-3 md:basis-1">
             <Image
               src="/images/cover.jpg"
               width={100}
@@ -48,7 +53,7 @@ export default function Contact() {
               <p>+62 856 715 9813</p>
             </div>
           </div>
-          <div className="flex-1">
+          <div className="md:basis-1">
             <form className="flex flex-col gap-6">
               <div className="flex gap-4 flex-col max-w-lg">
                 <div className="flex flex-col md:flex-row gap-4">
@@ -56,12 +61,11 @@ export default function Contact() {
                     <label htmlFor="name" className="font-bold">
                       Name
                     </label>
-                    <input
+                    <Input
                       id="name"
                       name="name"
                       placeholder="Your name"
                       required
-                      className="py-1 px-2 rounded"
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
@@ -69,13 +73,12 @@ export default function Contact() {
                     <label htmlFor="email" className="font-bold">
                       Email
                     </label>
-                    <input
+                    <Input
                       id="email"
                       name="email"
                       type="email"
                       placeholder="youremail@example.com"
                       required
-                      className="py-1 px-2 rounded"
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
@@ -84,13 +87,13 @@ export default function Contact() {
                   <label htmlFor="message" className="font-bold">
                     Message
                   </label>
-                  <textarea
+                  <Input
                     id="message"
                     name="message"
+                    type="textarea"
                     rows={5}
                     placeholder="I want to work with you on my..."
                     required
-                    className="py-1 px-2 rounded"
                     onChange={(e) => setMessage(e.target.value)}
                   />
                 </div>
