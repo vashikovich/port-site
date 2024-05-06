@@ -21,11 +21,18 @@ export async function getStaticProps() {
 export default function ProjectList({ projects, techs }: ProjectListProps) {
   return (
     <Layout>
-      <div className="flex flex-col gap-5 p-10">
-        {projects.map((p, i) => (
-          <ProjectCard project={p} techs={techs} even={i % 2 == 0} key={p.id} />
-        ))}
-      </div>
+      <section className="max-w-screen-lg mx-auto p-8 space-y-9">
+        <div className="flex flex-col gap-5">
+          {projects.map((p, i) => (
+            <ProjectCard
+              project={p}
+              techs={techs}
+              even={i % 2 == 0}
+              key={p.id}
+            />
+          ))}
+        </div>
+      </section>
     </Layout>
   );
 }

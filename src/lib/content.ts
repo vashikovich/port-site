@@ -61,7 +61,7 @@ export async function getProjects(): Promise<ProjectSchema[]> {
       shortDesc: r.fields["Short Desc"] as string,
       longDesc: r.fields["Long Desc"] as string,
       tags,
-      allTags,
+      allTags: allTags,
       techs,
       allTechs,
       id: r.fields["ID"] as string,

@@ -14,21 +14,21 @@ export default function ProjectCard({
   return (
     <div
       className={clsx(
-        "rounded bg-slate-800 flex flex-col",
+        "rounded bg-slate-800 flex flex-col md:min-h-80",
         even ? "md:flex-row" : "md:flex-row-reverse"
       )}
     >
-      <div className="relative w-full h-36">
+      <div className="relative w-full basis-2/5 min-h-40">
         <Image src={"/images/cover-bg.jpg"} fill alt={"cover"} />
       </div>
-      <div className="flex flex-col p-6 gap-2">
+      <div className="flex flex-col p-6 gap-2 basis-3/5">
         <h4 className="text-xl md:text-2xl font-bold">{project.title}</h4>
         <div className="flex flex-row flex-wrap">
           {project.tags.map((tag) => (
             <Tag text={tag} key={tag} />
           ))}
         </div>
-        <p>{project.shortDesc}</p>
+        <p className="flex-1">{project.shortDesc}</p>
         <div className="flex flex-row flex-wrap">
           {project.techs.map((projectTech) => {
             let tech = techs.find((t) => t.name == projectTech);
@@ -41,10 +41,10 @@ export default function ProjectCard({
           })}
         </div>
         <div className="flex flex-row justify-between">
+          <Button>Visit Site</Button>
           <Button onClick={() => router.push(`/projects/${project.id}`)}>
-            Visit Site
+            View Details
           </Button>
-          <Button>View Details</Button>
         </div>
       </div>
     </div>

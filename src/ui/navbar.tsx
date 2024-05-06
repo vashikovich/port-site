@@ -55,6 +55,8 @@ export default function Navbar() {
                 Indera Aji Waskitho
               </Link>
             </div>
+
+            <div></div>
           </div>
           {menuOpen && (
             <ul className="px-12 py-5 z-50 top-12 fixed flex max-w-full inset-x-0 bottom-0 w-screen flex-col gap-4 overflow-y-auto backdrop-blur-xl backdrop-saturate-150 bg-slate-900">
