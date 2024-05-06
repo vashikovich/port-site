@@ -34,7 +34,7 @@ function Button({
   );
 }
 
-type ButtonProps = {
+interface ButtonProps extends React.ComponentProps<"button"> {
   children: string;
   fullWidth?: boolean;
   variant?: "primary" | "secondary" | "text" | "ghost";
@@ -42,6 +42,6 @@ type ButtonProps = {
   icon?: ReactNode;
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
-};
+}
 
 export default Button;

@@ -83,9 +83,12 @@ export default function Contact() {
                     <Input
                       id="name"
                       name="name"
+                      type="text"
                       placeholder="Your name"
                       required
-                      onChange={(e) => setName(e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        setName(e.target.value)
+                      }
                     />
                   </div>
                   <div className="flex flex-col flex-1 gap-1">
@@ -98,7 +101,9 @@ export default function Contact() {
                       type="email"
                       placeholder="youremail@example.com"
                       required
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                        setEmail(e.target.value)
+                      }
                     />
                   </div>
                 </div>
@@ -113,7 +118,9 @@ export default function Contact() {
                     rows={5}
                     placeholder="I want to work with you on my..."
                     required
-                    onChange={(e) => setMessage(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setMessage(e.target.value)
+                    }
                   />
                 </div>
               </div>
@@ -124,10 +131,7 @@ export default function Contact() {
                 icon={status == "sending" && loadingEl}
                 disabled={status != "initial"}
               >
-                <>
-                  {status == "initial" && "Send"}
-                  {status == "sent" && "Sent!"}
-                </>
+                {status == "initial" ? "Send" : status == "sent" ? "Sent!" : ""}
               </Button>
             </form>
           </div>
