@@ -91,11 +91,16 @@ export default function ProjectPage({
       </section>
       <section className="max-w-screen-lg mx-auto p-8 space-y-6">
         <h2 className="text-2xl font-bold ">Other Experiences</h2>
-        {moreProjects.map((p) => (
-          <ProjectCard project={p} techs={techs} key={project.title} />
+        {moreProjects.map((p, i) => (
+          <ProjectCard
+            project={p}
+            techs={techs}
+            even={i % 2 == 0}
+            key={project.title}
+          />
         ))}
         <div className="flex justify-center mt-6 md:mt-8">
-          <Button onClick={() => router.push("/projects")}>
+          <Button variant="ghost" onClick={() => router.push("/projects")}>
             View All Projects
           </Button>
         </div>

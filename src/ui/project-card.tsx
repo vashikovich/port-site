@@ -40,9 +40,13 @@ export default function ProjectCard({
             );
           })}
         </div>
-        <div className="flex flex-row justify-between">
-          <Button>Visit Site</Button>
-          <Button onClick={() => router.push(`/projects/${project.id}`)}>
+        <div className="flex flex-row justify-between mt-2">
+          <div></div>
+          <Button
+            variant="text"
+            size="sm"
+            onClick={() => router.push(`/projects/${project.id}`)}
+          >
             View Details
           </Button>
         </div>

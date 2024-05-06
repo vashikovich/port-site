@@ -22,7 +22,7 @@ export default function Projects({ projects, techs }: ProjectsProps) {
         ))}
       </div>
       <div className="flex justify-center mt-6 md:mt-8">
-        <Button onClick={() => router.push("/projects")}>
+        <Button variant="ghost" onClick={() => router.push("/projects")}>
           View All Projects
         </Button>
       </div>
