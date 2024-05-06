@@ -1,7 +1,32 @@
 import Image from "next/image.js";
 import Button from "../components/button";
+import { useState } from "react";
 
 export default function Contact() {
+  const [name, setName] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+
+  const send = async (e: Event) => {
+    if (!name || !email || !message) return;
+
+    e.preventDefault();
+    setSending(true);
+    await fetch("/api/message", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    });
+    setSending(false);
+  };
+
   return (
     <section id="contact-section" className="bg-slate-900">
       <div className="max-w-screen-lg mx-auto px-12 py-20 bg-slate-900">
@@ -37,6 +62,7 @@ export default function Contact() {
                       placeholder="Your name"
                       required
                       className="py-1 px-2 rounded"
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </div>
                   <div className="flex flex-col flex-1 gap-1">
@@ -50,6 +76,7 @@ export default function Contact() {
                       placeholder="youremail@example.com"
                       required
                       className="py-1 px-2 rounded"
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                 </div>
@@ -64,10 +91,11 @@ export default function Contact() {
                     placeholder="I want to work with you on my..."
                     required
                     className="py-1 px-2 rounded"
+                    onChange={(e) => setMessage(e.target.value)}
                   />
                 </div>
               </div>
-              <Button type="submit" fullWidth>
+              <Button type="submit" fullWidth onClick={send}>
                 Send
               </Button>
             </form>
