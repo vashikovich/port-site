@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   fill="none"
+   version="1.1"
+   id="svg2307"
+   sodipodi:docname="desktop.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2311" />
+  <sodipodi:namedview
+     id="namedview2309"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="31.3125"
+     inkscape:cx="11.96008"
+     inkscape:cy="16"
+     inkscape:window-width="3200"
+     inkscape:window-height="1369"
+     inkscape:window-x="-8"
+     inkscape:window-y="1072"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2307" />
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="M26 23C26.5523 23 27 22.5523 27 22L27 8C27 7.44772 26.5523 7 26 7L6 7C5.44772 7 5 7.44772 5 8L5 22C5 22.5523 5.44772 23 6 23L26 23ZM29 22C29 23.6569 27.6569 25 26 25L6 25C4.34315 25 3 23.6569 3 22L3 8C3 6.34315 4.34315 5 6 5L26 5C27.6569 5 29 6.34315 29 8L29 22Z"
+     fill="black"
+     id="path2299"
+     style="fill:#f9f9f9" />
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="M11 28C11 27.4477 11.4477 27 12 27H20C20.5523 27 21 27.4477 21 28C21 28.5523 20.5523 29 20 29H12C11.4477 29 11 28.5523 11 28Z"
+     fill="black"
+     id="path2301"
+     style="fill:#f9f9f9" />
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="M3 19C3 18.4477 3.44772 18 4 18H28C28.5523 18 29 18.4477 29 19C29 19.5523 28.5523 20 28 20H4C3.44772 20 3 19.5523 3 19Z"
+     fill="black"
+     id="path2303"
+     style="fill:#f9f9f9" />
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="M16 23C16.5523 23 17 23.4477 17 24V28C17 28.5523 16.5523 29 16 29C15.4477 29 15 28.5523 15 28V24C15 23.4477 15.4477 23 16 23Z"
+     fill="black"
+     id="path2305"
+     style="fill:#f9f9f9" />
+</svg>

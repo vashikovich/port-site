@@ -19,7 +19,7 @@ export default function ProjectCard({
       )}
     >
       <div className="relative w-full basis-2/5 min-h-40">
-        <Image src={"/images/cover-bg.jpg"} fill alt={"cover"} />
+        <Image src={project.images[0]} fill alt={"cover"} />
       </div>
       <div className="flex flex-col p-6 gap-2 basis-3/5">
         <h4 className="text-xl md:text-2xl font-bold">{project.title}</h4>

@@ -16,5 +16,5 @@ export default function Tag({ variant = "md", text }: TagProps) {
 
 type TagProps = {
   text: string;
-  variant: "sm" | "md";
+  variant?: "sm" | "md";
 };

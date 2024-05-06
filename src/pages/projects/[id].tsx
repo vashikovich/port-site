@@ -58,14 +58,17 @@ export default function ProjectPage({
 
   return (
     <Layout>
-      <div>
-        <div
-          className="h-64"
-          style={{ backgroundImage: "url('/images/cover-bg.jpg')" }}
-        ></div>
+      <div
+        className="min-h-96 flex"
+        style={{
+          background: `linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url(${project.images[0]}) no-repeat 50% / cover`,
+        }}
+      >
+        <div className="max-w-screen-lg mx-auto p-8 space-y-2 flex justify-center items-center flex-1 flex-col">
+          <h1 className="text-4xl text-secondary">{project.title}</h1>
+        </div>
       </div>
       <section className="max-w-screen-lg mx-auto p-8 space-y-9">
-        <h2 className="text-2xl font-bold ">{project.title}</h2>
         <div className="space-y-3">
           <h3 className="font-bold">Description</h3>
           {project.longDesc.split(/[\r\n]+/).map((p) => (

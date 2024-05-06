@@ -4,22 +4,28 @@ import Button from "../components/button";
 
 export default function Cover({ greeting, bio }: CoverProps) {
   return (
-    <section style={{ backgroundImage: "url('/images/cover-bg.jpg')" }}>
+    <section
+      className="bg-slate-900"
+      style={{
+        background:
+          "linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.9)), url(/images/bg.jpg) no-repeat 50% / cover",
+      }}
+    >
       <div className="flex flex-col md:flex-row-reverse md:justify-between md:items-center w-full px-12 py-20 max-w-screen-lg mx-auto">
         <div className="mx-auto md:mx-0 md:ml-16">
           <Image
-            src="/images/cover.jpg"
+            src="/images/orang-mobile.png"
             width={200}
             height={200}
             className="block md:hidden"
-            alt="cover-image"
+            alt="Picture of Indera Aji Waskitho"
           />
           <Image
-            src="/images/cover.jpg"
-            width={500}
-            height={500}
+            src="/images/orang-desktop.png"
+            width={600}
+            height={200}
             className="hidden md:block"
-            alt="cover-image"
+            alt="Picture of Indera Aji Waskitho"
           />
         </div>
         <div className="mt-10 md:py-6">
@@ -27,9 +33,13 @@ export default function Cover({ greeting, bio }: CoverProps) {
           <p className="text-2xl md:text-6xl font-extrabold mt-1 text-secondary">
             SOFTWARE DEVELOPER
           </p>
-          <div className="flex flex-row gap-4 my-2">
+          <div className="flex-row gap-4 my-2 hidden md:flex">
             <Tag text="Remote" />
             <Tag text="Indonesia" />
+          </div>
+          <div className="flex flex-row gap-4 my-2 md:hidden">
+            <Tag text="Remote" variant="sm" />
+            <Tag text="Indonesia" variant="sm" />
           </div>
           <div className="space-y-5">
             {bio.split(/[\r\n]+/).map((b: string) => (

@@ -1,4 +1,4 @@
-import Airtable from "airtable";
+import Airtable, { Attachment } from "airtable";
 
 const base = process.env.AIRTABLE_BASE || "";
 
@@ -6,6 +6,7 @@ export type HomeSchema = {
   title: string;
   content: string;
   type: string;
+  files: string[];
 };
 
 export type ProjectSchema = {
@@ -16,6 +17,7 @@ export type ProjectSchema = {
   allTags: string[];
   techs: string[];
   allTechs: string[];
+  images: string[];
   id: string;
 };
 
@@ -34,6 +36,7 @@ export async function getHomeContent(): Promise<HomeSchema[]> {
       title: r.fields["Title"] as string,
       content: (r.fields["Content"] as string) ?? null,
       type: r.fields["Type"] as string,
+      files: (r.fields["Files"] as Attachment[])?.map((a) => a.url) ?? [],
     })
   );
 }
@@ -64,6 +67,7 @@ export async function getProjects(): Promise<ProjectSchema[]> {
       allTags: allTags,
       techs,
       allTechs,
+      images: (r.fields["Images"] as Attachment[])?.map((a) => a.url) ?? [],
       id: r.fields["ID"] as string,
     };
 

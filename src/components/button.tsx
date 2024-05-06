@@ -37,11 +37,11 @@ function Button({
 type ButtonProps = {
   children: string;
   fullWidth?: boolean;
-  variant: "primary" | "secondary" | "text" | "ghost";
-  size: "sm" | "md";
-  icon: ReactNode;
-  disabled: boolean;
-  onClick: MouseEventHandler<HTMLButtonElement> | undefined;
+  variant?: "primary" | "secondary" | "text" | "ghost";
+  size?: "sm" | "md";
+  icon?: ReactNode;
+  disabled?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
 export default Button;
