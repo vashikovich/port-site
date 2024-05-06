@@ -23,17 +23,18 @@ export default function ProjectCard({
       </div>
       <div className="flex flex-col p-6 gap-2 basis-3/5">
         <h4 className="text-xl md:text-2xl font-bold">{project.title}</h4>
-        <div className="flex flex-row flex-wrap">
+        <div className="flex flex-row flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <Tag text={tag} key={tag} />
+            <Tag variant="sm" text={tag} key={tag} />
           ))}
         </div>
         <p className="flex-1">{project.shortDesc}</p>
-        <div className="flex flex-row flex-wrap">
+        <div className="flex flex-row flex-wrap gap-2">
           {project.techs.map((projectTech) => {
             let tech = techs.find((t) => t.name == projectTech);
             return (
               <Tag
+                variant="sm"
                 text={tech?.name ?? projectTech}
                 key={tech?.name ?? projectTech}
               />
