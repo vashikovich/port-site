@@ -31,7 +31,7 @@ export default function ProjectList({ projects, techs }: ProjectListProps) {
         }}
       >
         <div className="max-w-screen-lg mx-auto p-8 space-y-2 flex justify-center items-center flex-1 flex-col">
-          <h1 className="text-6xl text-secondary">Experiences</h1>
+          <h1 className="text-4xl md:text-6xl text-secondary">Experiences</h1>
           <p className="text-sm md:text-lg text-slate-200/90">
             Amazing things that I have done
           </p>
