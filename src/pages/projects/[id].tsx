@@ -62,11 +62,11 @@ export default function ProjectPage({
       <div
         className="min-h-96 flex"
         style={{
-          background: `linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url(${project.images[0]}) no-repeat 50% / cover`,
+          background: `linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url(${project.images[0]}) no-repeat 50% / cover`,
         }}
       >
         <div className="max-w-screen-lg mx-auto p-8 space-y-2 flex justify-center items-center flex-1 flex-col">
-          <h1 className="text-4xl text-secondary">{project.title}</h1>
+          <h1 className="text-3xl md:text-5xl text-center">{project.title}</h1>
         </div>
       </div>
       <section className="max-w-screen-lg mx-auto p-8 space-y-9">
@@ -78,7 +78,7 @@ export default function ProjectPage({
         </div>
         <div className="space-y-3">
           <h3 className="font-bold">Tags</h3>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap gap-2">
             {project.allTags.map((tag) => (
               <Tag text={tag} key={tag} />
             ))}
@@ -86,24 +86,24 @@ export default function ProjectPage({
         </div>
         <div className="space-y-3">
           <h3 className="font-bold">Tech Stack</h3>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap gap-2">
             {project.allTechs.map((tech) => (
               <Tag text={tech} key={tech} />
             ))}
           </div>
         </div>
       </section>
-      <section className="max-w-screen-lg mx-auto p-8 space-y-6">
+      <section className="max-w-screen-lg mx-auto p-8 space-y-8">
         <h2 className="text-2xl font-bold ">Other Experiences</h2>
         {moreProjects.map((p, i) => (
           <ProjectCard
             project={p}
             techs={techs}
             even={i % 2 == 0}
-            key={project.title}
+            key={p.id}
           />
         ))}
-        <div className="flex justify-center mt-6 md:mt-8">
+        <div className="flex justify-center">
           <Button variant="ghost" onClick={() => router.push("/projects")}>
             View All Projects
           </Button>

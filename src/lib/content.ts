@@ -52,12 +52,12 @@ export async function getProjects(): Promise<ProjectSchema[]> {
     let tagsString = r.fields["Tags"] as string;
     let tagsStringParts = tagsString.split(/\s*\|\s*/);
     let tags = tagsStringParts[0].split(/\s*,\s*/);
-    let allTags = tags.concat(tagsStringParts[1].split(/\s*,\s*/));
+    let allTags = tags.concat(tagsStringParts[1]?.split(/\s*,\s*/) ?? []);
 
     let techsString = r.fields["Techs"] as string;
     let techsStringParts = techsString.split(/\s*\|\s*/);
     let techs = techsStringParts[0].split(/\s*,\s*/);
-    let allTechs = techs.concat(techsStringParts[1].split(/\s*,\s*/));
+    let allTechs = techs.concat(techsStringParts[1]?.split(/\s*,\s*/) ?? []);
 
     let result: ProjectSchema = {
       title: r.fields["Title"] as string,
