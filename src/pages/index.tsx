@@ -14,10 +14,11 @@ import {
   getProjects,
   getTechs,
 } from "@/lib/content";
+import { GetStaticProps } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const content = await getHomeContent();
   const techs = await getTechs();
   const projects = (await getProjects()).slice(0, 3);
@@ -27,8 +28,9 @@ export async function getStaticProps() {
       techs,
       projects,
     },
+    revalidate: 600,
   };
-}
+};
 
 export default function Home({ content, techs, projects }: HomeProps) {
   const coverContent = content.find((c) => c.type == "Bio");

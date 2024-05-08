@@ -6,8 +6,9 @@ import {
   getProjects,
   getTechs,
 } from "@/lib/content";
+import { GetStaticProps } from "next";
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const projects = await getProjects();
   const techs = await getTechs();
   return {
@@ -15,8 +16,9 @@ export async function getStaticProps() {
       projects,
       techs,
     },
+    revalidate: 600
   };
-}
+};
 
 export default function ProjectList({ projects, techs }: ProjectListProps) {
   return (
