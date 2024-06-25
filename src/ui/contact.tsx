@@ -68,8 +68,9 @@ export default function Contact() {
               alt="Picture of Indera Aji Waskitho"
             />
             <div className="flex flex-col items-center md:text-start text-sm md:text-md gap-2">
-              <Tag text="indera.waskitho@gmail.com" variant="sm"></Tag>
-              <Tag text="+62 856 715 9813" variant="sm"></Tag>
+              {/* <Tag text="indera.waskitho@gmail.com" variant="sm"></Tag> */}
+              {/* <Tag text="+62 856 715 9813" variant="sm"></Tag> */}
+              <p className="text-lg mt-4">indera.waskitho@gmail.com</p>
             </div>
           </div>
           <div className="md:basis-1">

@@ -11,7 +11,7 @@ export default function Cover({ greeting, bio }: CoverProps) {
           "linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.9)), url(/images/bg.jpg) no-repeat 50% / cover",
       }}
     >
-      <div className="flex flex-col md:flex-row-reverse md:justify-between md:items-center w-full px-12 py-20 max-w-screen-lg mx-auto">
+      <div className="flex flex-col md:flex-row-reverse md:justify-between md:items-center w-full px-12 pb-20 pt-10 max-w-screen-lg mx-auto">
         <div className="mx-auto md:mx-0 md:ml-16">
           <Image
             src="/images/orang-mobile.png"
@@ -28,7 +28,7 @@ export default function Cover({ greeting, bio }: CoverProps) {
             alt="Picture of Indera Aji Waskitho"
           />
         </div>
-        <div className="mt-10 md:py-6">
+        <div className="mt-10 md:mt-0 md:py-6">
           <p className="font-bold md:text-2xl">{greeting}</p>
           <p className="text-2xl md:text-6xl font-extrabold mt-1 text-secondary">
             SOFTWARE DEVELOPER

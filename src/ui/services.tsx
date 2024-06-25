@@ -13,7 +13,7 @@ export default function Services({ content }: { content: HomeSchema[] }) {
           What I can provide
         </p>
       </div>
-      <div className="flex flex-col md:flex-row gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {content.map((c) => (
           <ServiceCard
             title={c.title}

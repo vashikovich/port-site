@@ -33,9 +33,9 @@ export default function Expertise({ expertises, techs }: ExpertiseProps) {
             {renderTags(expertises[1], techs, "secondary")}
           </div>
 
-          <div className="grid grid-cols-6 md:grid-cols-12 gap-2 mt-5">
+          {/* <div className="grid grid-cols-6 md:grid-cols-12 gap-2 mt-5">
             {renderTags(expertises[2], techs, "tertiary")}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

@@ -17,6 +17,7 @@ export type ProjectSchema = {
   allTags: string[];
   techs: string[];
   allTechs: string[];
+  links: { label: string; link: string }[];
   images: string[];
   id: string;
 };
@@ -45,7 +46,10 @@ export async function getProjects(): Promise<ProjectSchema[]> {
   const airtableBase = new Airtable({
     apiKey: process.env.AIRTABLE_API_KEY,
   }).base(base);
-  const records = await airtableBase.table("Project").select().all();
+  const records = await airtableBase
+    .table("Project")
+    .select({ filterByFormula: "Order>0", sort: [{ field: "Order" }] })
+    .all();
   const results: ProjectSchema[] = [];
 
   for (let r of records) {
@@ -67,6 +71,9 @@ export async function getProjects(): Promise<ProjectSchema[]> {
       allTags: allTags,
       techs,
       allTechs,
+      links: r.fields["Links"]
+        ? JSON.parse(r.fields["Links"] as string)
+        : null,
       images: (r.fields["Images"] as Attachment[])?.map((a) => a.url) ?? [],
       id: r.fields["ID"] as string,
     };

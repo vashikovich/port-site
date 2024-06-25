@@ -7,6 +7,7 @@ import {
   getTechs,
 } from "@/lib/content";
 import { GetStaticProps } from "next";
+import Head from "next/head";
 
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getProjects();
@@ -23,6 +24,9 @@ export const getStaticProps: GetStaticProps = async () => {
 export default function ProjectList({ projects, techs }: ProjectListProps) {
   return (
     <Layout>
+      <Head>
+        <title>Indera Aji Waskitho&apos;s Experiences</title>
+      </Head>
       <div
         className="min-h-96 flex"
         style={{

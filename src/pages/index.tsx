@@ -15,6 +15,7 @@ import {
   getTechs,
 } from "@/lib/content";
 import { GetStaticProps } from "next";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,6 +48,9 @@ export default function Home({ content, techs, projects }: HomeProps) {
 
   return (
     <Layout>
+      <Head>
+        <title>Indera Aji Waskitho&apos;s Portfolio</title>
+      </Head>
       <Cover
         greeting={coverContent?.title ?? ""}
         bio={coverContent?.content ?? ""}

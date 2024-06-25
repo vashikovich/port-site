@@ -13,6 +13,8 @@ import { ParsedUrlQuery } from "querystring";
 import Tag from "@/components/tag";
 import Button from "@/components/button";
 import { useRouter } from "next/router.js";
+import Head from "next/head";
+import Link from "next/link";
 
 interface IParams extends ParsedUrlQuery {
   id: string;
@@ -29,7 +31,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       allProjects: projects,
       techs,
     },
-    revalidate: 600
+    revalidate: 600,
   };
 };
 
@@ -59,6 +61,9 @@ export default function ProjectPage({
 
   return (
     <Layout>
+      <Head>
+        <title>Indera Aji Waskitho: {project.title}</title>
+      </Head>
       <div
         className="min-h-96 flex"
         style={{
@@ -76,14 +81,14 @@ export default function ProjectPage({
             <p key={p}>{p}</p>
           ))}
         </div>
-        <div className="space-y-3">
+        {/* <div className="space-y-3">
           <h3 className="font-bold">Tags</h3>
           <div className="flex flex-wrap gap-2">
             {project.allTags.map((tag) => (
               <Tag text={tag} key={tag} />
             ))}
           </div>
-        </div>
+        </div> */}
         <div className="space-y-3">
           <h3 className="font-bold">Tech Stack</h3>
           <div className="flex flex-wrap gap-2">
@@ -92,16 +97,23 @@ export default function ProjectPage({
             ))}
           </div>
         </div>
+        <div className="flex flex-row justify-center md:justify-start">
+          {project.links &&
+            (project.links.length > 1 ? (
+              <Link href={`/projects/${project.id}/links`}>
+                <Button variant="primary">Visit</Button>
+              </Link>
+            ) : (
+              <Link href={project.links[0].link}>
+                <Button variant="primary">{project.links[0].label}</Button>
+              </Link>
+            ))}
+        </div>
       </section>
       <section className="max-w-screen-lg mx-auto p-8 space-y-8">
         <h2 className="text-2xl font-bold ">Other Experiences</h2>
         {moreProjects.map((p, i) => (
-          <ProjectCard
-            project={p}
-            techs={techs}
-            even={i % 2 == 0}
-            key={p.id}
-          />
+          <ProjectCard project={p} techs={techs} even={i % 2 == 0} key={p.id} />
         ))}
         <div className="flex justify-center">
           <Button variant="ghost" onClick={() => router.push("/projects")}>
