@@ -18,7 +18,7 @@ export default function Services({ content }: { content: HomeSchema[] }) {
           <ServiceCard
             title={c.title}
             content={c.content}
-            imageUrl={c.files[0]}
+            imageUrl={`/logo/${c.image ?? "default.svg"}`}
             key={c.title}
           />
         ))}

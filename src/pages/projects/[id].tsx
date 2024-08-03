@@ -67,7 +67,7 @@ export default function ProjectPage({
       <div
         className="min-h-96 flex"
         style={{
-          background: `linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url(${project.images[0]}) no-repeat 50% / cover`,
+          background: `linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url(${project.coverUrl}) no-repeat 50% / cover`,
         }}
       >
         <div className="max-w-screen-lg mx-auto p-8 space-y-2 flex justify-center items-center flex-1 flex-col">

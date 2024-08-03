@@ -6,7 +6,7 @@ export type HomeSchema = {
   title: string;
   content: string;
   type: string;
-  files: string[];
+  image: string;
 };
 
 export type ProjectSchema = {
@@ -18,7 +18,7 @@ export type ProjectSchema = {
   techs: string[];
   allTechs: string[];
   links: { label: string; link: string }[];
-  images: string[];
+  coverUrl: string;
   id: string;
 };
 
@@ -37,7 +37,7 @@ export async function getHomeContent(): Promise<HomeSchema[]> {
       title: r.fields["Title"] as string,
       content: (r.fields["Content"] as string) ?? null,
       type: r.fields["Type"] as string,
-      files: (r.fields["Files"] as Attachment[])?.map((a) => a.url) ?? [],
+      image: (r.fields["Image"] as string) ?? null,
     })
   );
 }
@@ -74,7 +74,7 @@ export async function getProjects(): Promise<ProjectSchema[]> {
       links: r.fields["Links"]
         ? JSON.parse(r.fields["Links"] as string)
         : null,
-      images: (r.fields["Images"] as Attachment[])?.map((a) => a.url) ?? [],
+      coverUrl: r.fields["Cover URL"] as string,
       id: r.fields["ID"] as string,
     };
 

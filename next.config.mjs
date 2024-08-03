@@ -6,7 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'v5.airtableusercontent.com'
+        hostname: 'i.imgur.com'
       }
     ]
   }
